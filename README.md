@@ -1,27 +1,23 @@
-# AngularSkillsChallenge
+## The purpose of this app is to test your skills in .net and angular.  Below you will find a set of tasks to be performed.  You may complete as many or as few as you woudl like.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+### Before you begin please fork this repository and work in your own instance. (https://docs.github.com/en/search?query=forking)
 
-## Development server
+## Tasks
+1. Bug Fix:  We have a memory leak somewhere in our application.  The description from the user is as follows:
+	> For my job I have to navigate between people and places.  As the day gets later my browser seems to slow down a lot.
+	
+	The performance team ran some tests and found that memory is going up from 5 MB on load to 2 GB after only a couple of hours.
+2. Bug Fix:  Navigation issue.  The description from the user is as follows:
+	> When I click on the Things nav item nothing happens
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+3. Enhancement:  The users would like to see the search results cached for at least 2 minutes.  Introduce code that could accomplish this.
 
-## Code scaffolding
+4. Refactor:  The quality of this application can be improved.  In your role as a great developer, please refactor/improve this application as you seem fit.  I know we can create a product that is easier to read by other developers, improve the quality and provide more functionality for our clients.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### For the following you may write code to demonstrate or just describe how it could be done
+Note:  This is in regards to the server side code located in this [repo](https://github.com/jasedwards/SkillsChallenge)
+1. Is DbContext used in a thread safe manner?
 
-## Build
+2. What would be the server side steps to add an ability to input a new Person record?
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. What are the security concerns with data UPSERT?  How would you resolve those concerns?

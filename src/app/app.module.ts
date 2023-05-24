@@ -1,18 +1,37 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { APP_INITIALIZER, InjectionToken, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { StoreModule } from '@ngrx/store';
+import { BehaviorSubject } from 'rxjs';
+export function GetThemeChanger() {
+  return new BehaviorSubject<string>('');
+}
+
+export const ThemeChanger = new InjectionToken<BehaviorSubject<string>>('changes theme');
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavMenuComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot([
+      { path: 'people', loadComponent: () => import('./people/people.component').then(m => m.PeopleComponent) },
+      { path: 'things', loadComponent: () => import('./things/things.component').then(m => m.ThingsComponent) },
+      { path: '', redirectTo: 'people', pathMatch: 'full' },
+    ], { initialNavigation: 'disabled' }),
+    StoreModule.forRoot({}, {})
   ],
-  providers: [],
+  providers: [{ provide: ThemeChanger, useFactory: GetThemeChanger }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

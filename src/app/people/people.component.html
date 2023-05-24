@@ -1,0 +1,7 @@
+<input type="search" appQuickSearch (valueUpdated)="search($event)"/>
+<ng-container *ngIf="!isLoading;else loading">
+  <app-table [rows]="rows" [columns]="columns"></app-table>
+</ng-container>
+<ng-template #loading>
+  Loading...
+</ng-template>
